@@ -35,6 +35,10 @@ void hardware::init()
     pinMode(PIN_BATTERY_CHARGING_STATUS, INPUT);
     pinMode(PIN_LED, OUTPUT);
 
+    pinMode(PIN_SD_CS, OUTPUT);
+    digitalWrite(PIN_SD_CS, HIGH);
+    pinMode(MISO_PIN, INPUT_PULLUP);
+
     setVibrator(false);
 
     /*uart_config_t uart_config = {

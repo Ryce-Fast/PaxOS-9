@@ -4,3 +4,4 @@
 #define PIN_VIBRATOR 33
 #define PIN_BATTERY_CHARGING_STATUS 39
 #define PIN_LED 14
+#define MISO_PIN 19
