@@ -14,7 +14,7 @@ jobs:
 
         steps:
           - name: Checkout repository
-            uses: actions/checkout@v4
+            uses: actions/checkout@v6
 
           - name: Cache dependencies
             uses: actions/cache@v4
@@ -27,9 +27,9 @@ jobs:
               key: ${{ runner.os }}-platformio-ci-paxo-v5
 
           - name: Setup Python
-            uses: actions/setup-python@v5
+            uses: actions/setup-python@v6
             with:
-              python-version: '3.13'
+              python-version: '3.14'
 
           - name: Install PlatformIO Core
             run: pip install --upgrade platformio
@@ -52,7 +52,7 @@ jobs:
               cp -r storage build
 
           - name: Upload artifact
-            uses: actions/upload-artifact@v4
+            uses: actions/upload-artifact@v5
             with:
               name: paxo-v5-build
               include-hidden-files: true
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -78,9 +78,9 @@ jobs:
           key: ${{ runner.os }}-platformio-ci-linux
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
@@ -93,7 +93,7 @@ jobs:
 
       - name: Upload test reports
         if: success() || failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: linux-test-reports
           path: |
@@ -112,7 +112,7 @@ jobs:
           cp -r cacert.pem build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: linux-build
           include-hidden-files: true
@@ -125,7 +125,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -138,9 +138,9 @@ jobs:
           key: ${{ runner.os }}-platformio-ci-macos
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
@@ -153,7 +153,7 @@ jobs:
 
       - name: Upload test reports
         if: success() || failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: macos-test-reports
           path: |
@@ -173,7 +173,7 @@ jobs:
           chmod +x build/program
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: macos-build
           include-hidden-files: true
@@ -186,7 +186,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Cache dependencies
         uses: actions/cache@v4
@@ -199,9 +199,9 @@ jobs:
           key: ${{ runner.os }}-platformio-ci-windows
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
@@ -211,7 +211,7 @@ jobs:
 
       - name: Upload test reports
         if: success() || failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: windows-test-reports
           path: |
@@ -234,7 +234,7 @@ jobs:
         run: python scripts/github_actions/windows/get_dll.py build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: windows-build
           include-hidden-files: true
